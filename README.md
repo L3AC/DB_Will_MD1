@@ -1,1 +1,3 @@
-# DB_Will_MD1
+# Miembros: 2B
+Luis Eduardo Alvarenga 
+Rodrigo Alejandro Alvarado
