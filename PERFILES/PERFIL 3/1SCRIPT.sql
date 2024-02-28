@@ -3,14 +3,15 @@ CREATE DATABASE libro_express;
 USE libro_express;
 
 CREATE TABLE tb_clientes ( 
-id_cliente VARCHAR(255) PRIMARY KEY,
+id_cliente VARCHAR(255) PRIMARY KEY DEFAULT UUID(),
 nombre_cliente VARCHAR (50) NOT NULL,
 email_cliente VARCHAR (100)NOT NULL,
 telefono VARCHAR (10) NOT NULL
 );
+#insert into tb_clientes(id_cliente,nombre_cliente,email_cliente,telefono) values(UUID(),'cochi','cochi','45354345')
 
 CREATE TABLE tb_prestamos ( 
-id_prestamo VARCHAR(255)  PRIMARY KEY,
+id_prestamo VARCHAR(255)  PRIMARY KEY DEFAULT UUID(),
 id_cliente VARCHAR(255),
 fecha_inicio DATETIME,
 fecha_devolucion DATETIME,
@@ -26,7 +27,7 @@ nombre_genero_libro VARCHAR(50) NOT NULL
 ); 
 
 CREATE TABLE tb_libros (
-id_libro VARCHAR(255) PRIMARY KEY,
+id_libro VARCHAR(255) PRIMARY KEY DEFAULT UUID(),
 titulo_libro VARCHAR (50) NOT NULL,
 anio_publicacion INT,
 id_genero_libro VARCHAR(255),
@@ -37,7 +38,7 @@ ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE tb_detalles_prestamos ( 
-id_detalle_prestamo INT  PRIMARY KEY,
+id_detalle_prestamo INT  PRIMARY KEY DEFAULT UUID(),
 id_prestamo VARCHAR(255),
 id_libro VARCHAR(255),
 CONSTRAINT fk_detalle_prestamo
