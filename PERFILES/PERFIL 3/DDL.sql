@@ -1,3 +1,5 @@
+USE libro_express;
+
 /*tb_clientes*/
 DELIMITER //
 
@@ -17,7 +19,7 @@ DELIMITER ;
 DELIMITER //
 
 CREATE PROCEDURE InsertarPrestamo(
-  IN p_id_cliente INT,
+  IN p_id_cliente VARCHAR(255),
   IN p_fecha_inicio DATE,
   IN p_fecha_devolucion DATE,
   IN p_estado ENUM('Activo', 'Inactivo')
@@ -48,7 +50,7 @@ DELIMITER //
 CREATE PROCEDURE InsertarLibro(
   IN p_titulo_libro VARCHAR(50),
   IN p_anio_publicacion INT,
-  IN p_id_genero_libro INT,
+  IN p_id_genero_libro VARCHAR(255),
   IN p_estado ENUM('Disponible', 'Prestado')
 )
 BEGIN
@@ -62,8 +64,8 @@ DELIMITER ;
 DELIMITER //
 
 CREATE PROCEDURE InsertarDetallePrestamo(
-  IN p_id_prestamo INT,
-  IN p_id_libro INT
+  IN p_id_prestamo VARCHAR(255),
+  IN p_id_libro VARCHAR(255)
 )
 BEGIN
   INSERT INTO tb_detalles_prestamos (id_detalle_prestamo, id_prestamo, id_libro)
@@ -71,3 +73,4 @@ BEGIN
 END //
 
 DELIMITER ;
+
