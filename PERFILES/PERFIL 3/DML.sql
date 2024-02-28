@@ -68,3 +68,21 @@ CALL InsertarLibro('Libro 13', 2019, (SELECT id_genero_libro FROM tb_generos_lib
 CALL InsertarLibro('Libro 14', 2017, (SELECT id_genero_libro FROM tb_generos_libros WHERE nombre_genero_libro = 'Biografía'), 'Disponible');
 CALL InsertarLibro('Libro 15', 2020, (SELECT id_genero_libro FROM tb_generos_libros WHERE nombre_genero_libro = 'Cocina'), 'Disponible');
 
+/*tb Detalle Prestamos*/
+CALL InsertarDetallePrestamo('98c9105a-d65c-11ee-b99f-b04f13083500', '98c9105a-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+CALL InsertarDetallePrestamo('98c9e40e-d65c-11ee-b99f-b04f13083500', '98c99bac-d65c-11ee-b99f-b04f13083500');
+
