@@ -1,6 +1,6 @@
 USE libro_express;
 
-/*tb_clientes*/
+/*TB_CLIENTES*/
 DELIMITER //
 
 CREATE PROCEDURE InsertarCliente(
@@ -15,7 +15,7 @@ END //
 
 DELIMITER ;
 
-/*tb_prestamos*/
+/*TB_PRESTAMOS*/
 DELIMITER //
 
 CREATE PROCEDURE InsertarPrestamo(
@@ -31,7 +31,7 @@ END //
 
 DELIMITER ;
 
-/*f*/
+/*TB_GENERO_LIBROS*/
 DELIMITER //
 
 CREATE PROCEDURE InsertarGeneroLibro(
@@ -44,7 +44,7 @@ END //
 
 DELIMITER ;
 
-/*f*/
+/*TB_LIBROS*/
 DELIMITER //
 
 CREATE PROCEDURE InsertarLibro(
@@ -60,7 +60,7 @@ END //
 
 DELIMITER ;
 
-/*f*/
+/*TB_DETALLE_PRESTAMO*/
 DELIMITER //
 
 CREATE PROCEDURE InsertarDetallePrestamo(
