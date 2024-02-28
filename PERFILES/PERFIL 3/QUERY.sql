@@ -41,7 +41,10 @@ DELIMITER ;
 */
 
 CREATE TABLE(
-  
+    ID INT PRIMARY KEY,
+    CONSTRAINT fk_comentario_detalle
+    FOREIGN KEY (id_detalle) REFERENCES prc_detalle_pedidos(id_detalle)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 INSERT INTO () VALUES(UUID(),);
 
