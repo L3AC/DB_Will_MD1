@@ -3,33 +3,33 @@ CREATE DATABASE libro_express;
 USE libro_express;
 
 CREATE TABLE tb_clientes ( 
-id_cliente INT  PRIMARY KEY,
-nombre_cliente VARCHAR (50),
-email_cliente VARCHAR (100),
-telefono VARCHAR (10)
+id_cliente VARCHAR(255) PRIMARY KEY,
+nombre_cliente VARCHAR (50) NOT NULL,
+email_cliente VARCHAR (100)NOT NULL,
+telefono VARCHAR (10) NOT NULL
 );
 
 CREATE TABLE tb_prestamos ( 
-id_prestamo INT  PRIMARY KEY,
-id_cliente INT,
-fecha_inicio DATE,
-fecha_devolucion DATE,
+id_prestamo VARCHAR(255)  PRIMARY KEY,
+id_cliente VARCHAR(255),
+fecha_inicio DATETIME,
+fecha_devolucion DATETIME,
 estado ENUM('Activo','Inactivo'),
 CONSTRAINT fk_prestamo_cliente
-    FOREIGN KEY (id_cliente) REFERENCES tb_clientes(id_cliente)
-    ON DELETE CASCADE ON UPDATE CASCADE
+FOREIGN KEY (id_cliente) REFERENCES tb_clientes(id_cliente)
+ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE tb_generos_libros (
-id_genero_libro INT PRIMARY KEY,
-nombre_genero_libro VARCHAR(50)
+id_genero_libro VARCHAR(255) PRIMARY KEY,
+nombre_genero_libro VARCHAR(50) NOT NULL
 ); 
 
 CREATE TABLE tb_libros (
-id_libro INT PRIMARY KEY,
-titulo_libro VARCHAR (50),
+id_libro VARCHAR(255) PRIMARY KEY,
+titulo_libro VARCHAR (50) NOT NULL,
 anio_publicacion INT,
-id_genero_libro INT,
+id_genero_libro VARCHAR(255),
 estado ENUM ('Disponible', 'Prestado'),
 CONSTRAINT fk_libro_genero
 FOREIGN KEY (id_genero_libro) REFERENCES tb_generos_libros(id_genero_libro)
@@ -38,8 +38,8 @@ ON DELETE CASCADE ON UPDATE CASCADE
 
 CREATE TABLE tb_detalles_prestamos ( 
 id_detalle_prestamo INT  PRIMARY KEY,
-id_prestamo INT,
-id_libro INT,
+id_prestamo VARCHAR(255),
+id_libro VARCHAR(255),
 CONSTRAINT fk_detalle_prestamo
 FOREIGN KEY (id_prestamo) REFERENCES tb_prestamos(id_prestamo)
 ON DELETE CASCADE ON UPDATE CASCADE,
@@ -47,17 +47,3 @@ CONSTRAINT fk_detalle_libro
 FOREIGN KEY (id_libro) REFERENCES tb_libros(id_libro)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-DELIMITER //
-CREATE TRIGGER actualizar_estado_libro
-AFTER INSERT ON tb_detalles_prestamos
-FOR EACH ROW
-BEGIN
-    UPDATE tb_libros
-    SET estado = 'Prestado'
-    WHERE id_libro = NEW.id_libro;
-END //
-DELIMITER ;
-
-
-
