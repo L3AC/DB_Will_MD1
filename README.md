@@ -1,3 +1,3 @@
 # Miembros: 2B
-Luis Eduardo Alvarenga 
+Luis Eduardo Alvarenga --- 
 Rodrigo Alejandro Alvarado
