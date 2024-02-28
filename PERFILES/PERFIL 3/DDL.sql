@@ -1,5 +1,17 @@
 USE libro_express;
 
+/*TRIGGER*/
+DELIMITER //
+CREATE TRIGGER actualizar_estado_libro
+AFTER INSERT ON tb_detalles_prestamos
+FOR EACH ROW
+BEGIN
+    UPDATE tb_libros
+    SET estado = 'Prestado'
+    WHERE id_libro = NEW.id_libro;
+END //
+DELIMITER ;
+
 /*TB_CLIENTES*/
 DELIMITER //
 
