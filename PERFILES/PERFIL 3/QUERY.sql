@@ -16,7 +16,7 @@ fecha_inicio DATE,
 fecha_devolucion DATE,
 estado ENUM('Activo','Inactivo'),
 CONSTRAINT fk_prestamo_cliente
-    FOREIGN KEY (id_cliente) REFERENCES tb_clientes(id_detalle)
+    FOREIGN KEY (id_cliente) REFERENCES tb_clientes(id_cliente)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
