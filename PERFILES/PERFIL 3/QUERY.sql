@@ -1,44 +1,46 @@
 DROP DATABASE IF EXIST ;
 CREATE DATABASE ;
 USE ;
+CREATE DATABASE Ejercicio2;
+USE Ejercicio2;
 
-/*
-CREATE TABLE ejemplo_uuid (
-    id CHAR(36) PRIMARY KEY,
-    nombre VARCHAR(255)
+create table clientes ( 
+id_cliente int  primary key,
+nombre_cliente varchar (50),
+email_cliente varchar (100),
+telefono varchar (10)
 );
-INSERT INTO ejemplo_uuid (id, nombre) VALUES (UUID(), 'Ejemplo');
-INSERT INTO ejemplo_uuid (id, nombre) VALUES ('f47ac10b-58cc-4372-a567-0e02b2c3d479', 'Otro Ejemplo');
-SELECT * FROM ejemplo_uuid;
 
-DELIMITER //
-CREATE TRIGGER actualizar_fecha_modificacion
-BEFORE UPDATE ON ejemplo
-FOR EACH ROW
-BEGIN
-    SET NEW.fecha_modificacion = NOW();
-END//
-DELIMITER ;
+create table prestamos ( 
+id_prestamo int  primary key,
+id_cliente int,
+fecha_inicio date,
+fecha_devolucion date,
+estado enum('Activo','Inactivo')
+);
 
-DELIMITER //
-CREATE PROCEDURE contar_registros()
-BEGIN
-    DECLARE total INT;
-    SELECT COUNT(*) INTO total FROM ejemplo;
-    SELECT total;
-END//
-DELIMITER ;
+create table generos_libros (
+id_genero_libro int primary key,
+nombre_genero_libro varchar(50)
+); 
 
-DELIMITER //
-CREATE FUNCTION calcular_area_circulo(radio FLOAT)
-RETURNS FLOAT
-BEGIN
-    DECLARE area FLOAT;
-    SET area = PI() * radio * radio;
-    RETURN area;
-END//
-DELIMITER ;
-*/
+create table libros (
+id_libro int primary key,
+titulo_libro varchar (50),
+anio_publicacion int,
+id_genero_libro int,
+estado enum ('Disponible', 'Prestado')
+
+
+);
+
+create table detalles_prestamos ( 
+id_detalle_prestamo int  primary key,
+id_prestamo int,
+id_libro int
+);
+
+
 
 CREATE TABLE(
     ID INT PRIMARY KEY,
