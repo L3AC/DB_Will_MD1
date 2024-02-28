@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS Ejercicio2;
-CREATE DATABASE Ejercicio2;
-USE Ejercicio2;
+DROP DATABASE IF EXISTS libro_express;
+CREATE DATABASE libro_express;
+USE libro_express;
 
 CREATE TABLE tb_clientes ( 
 id_cliente INT  PRIMARY KEY,
