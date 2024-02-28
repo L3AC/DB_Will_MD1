@@ -4,7 +4,7 @@ USE libro_express;
 DELIMITER //
 CREATE PROCEDURE insert_cliente(nombre_cliente VARCHAR(50), email_cliente VARCHAR(100), telefono VARCHAR(10))
 BEGIN
-    insert_ INTO tb_clientes(nombre_cliente, email_cliente, telefono) VALUES (nombre_cliente, email_cliente, telefono);
+    INSERT INTO tb_clientes(nombre_cliente, email_cliente, telefono) VALUES (nombre_cliente, email_cliente, telefono);
 END 
 //DELIMITER
  
@@ -13,13 +13,13 @@ CREATE PROCEDURE insert_prestamo(nombreCliente VARCHAR(50), fecha_inicio DATE, f
 BEGIN
     DECLARE cliente_id BINARY(36);
     SET cliente_id = (SELECT id_cliente FROM tb_clientes WHERE nombre_cliente = nombreCliente);
-    insert_ INTO tb_prestamos(id_cliente, fecha_inicio, fecha_devolucion, estado) VALUES (cliente_id, fecha_inicio, fecha_devolucion, estado);
+    INSERT INTO tb_prestamos(id_cliente, fecha_inicio, fecha_devolucion, estado) VALUES (cliente_id, fecha_inicio, fecha_devolucion, estado);
 END //DELIMITER ;
 
 DELIMITER //
 CREATE PROCEDURE insert_genero_libro(nombre_genero_libro VARCHAR(50))
 BEGIN
-    insert_ INTO tb_generos_libros(nombre_genero_libro) VALUES (nombre_genero_libro);
+    INSERT INTO tb_generos_libros(nombre_genero_libro) VALUES (nombre_genero_libro);
 END //DELIMITER ;
 
 DELIMITER //
@@ -28,7 +28,7 @@ BEGIN
 	DECLARE generoLibro_id BINARY(36);
     -- Encierra la consulta SELECT entre paréntesis
    SET generoLibro_id = (SELECT id_genero_libro FROM tb_generos_libros WHERE nombre_genero_libro =  NombreGenero);
-   insert_ INTO tb_libros(titulo_libro, anio_publicacion, id_genero_libro, estado) VALUES (titulo_libro, anio_publicacion, generoLibro_id, estado);
+   INSERT INTO tb_libros(titulo_libro, anio_publicacion, id_genero_libro, estado) VALUES (titulo_libro, anio_publicacion, generoLibro_id, estado);
 END //DELIMITER ;
 DELIMITER //
  
@@ -41,7 +41,7 @@ BEGIN
    SET cliente_id = (SELECT id_cliente FROM tb_clientes WHERE nombre_cliente = /*'Juanito'*/ nombre_cliente LIMIT 1);
    SET prestamo_id = (SELECT id_prestamo FROM tb_prestamos WHERE id_cliente = /*'09bd07a3-d68e-11ee-91b5-601895385c54'*/ cliente_id LIMIT 1);
    SET libros_id = (SELECT id_libro FROM tb_libros WHERE titulo_libro =/*'Harry Potter'*/  tituloLibro LIMIT 1);
-   insert_ INTO tb_detalles_prestamos(id_prestamo, id_libro) VALUES (prestamo_id, libros_id);
+   INSERT INTO tb_detalles_prestamos(id_prestamo, id_libro) VALUES (prestamo_id, libros_id);
 END //
 DELIMITER ;
 
