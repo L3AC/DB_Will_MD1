@@ -169,3 +169,15 @@ CALL AgregarDetallesPrestamo ('Laura', 'Los pilares de la Tierra');
 CALL AgregarDetallesPrestamo ('Pedro', 'Dune');
 CALL AgregarDetallesPrestamo ('María', 'Orgullo y prejuicio');
 CALL AgregarDetallesPrestamo ('Carlos', 'La Odisea');
+
+/*Trigger*/
+DELIMITER //
+CREATE TRIGGER actualizar_estado_libro
+AFTER INSERT ON tb_detalles_prestamos
+FOR EACH ROW
+BEGIN
+    UPDATE tb_libros
+    SET estado = 'Prestado'
+    WHERE id_libro = NEW.id_libro;
+END //
+DELIMITER ;
